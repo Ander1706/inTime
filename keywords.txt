@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map Interval
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+InTime	KEYWORD1	InTime
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+time_from	KEYWORD2
+time_to	KEYWORD2
+tickCnt	KEYWORD2
+tmr_on	KEYWORD2
+expired	KEYWORD2
+set	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
