@@ -6,3 +6,4 @@
 #no PIO
 .platformIO/
 .platformIO
+platformIO/
