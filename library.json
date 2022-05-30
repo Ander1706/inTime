@@ -11,6 +11,17 @@
     "*.png",
     "*.zip"
   ],
+  "examples": [
+    {
+        "name": "inTime",
+        "base": "example/intime_PIO",
+        "files": [
+            "platformio.ini",
+            "src/main.cpp",
+            "README",
+        ]
+    },
+]
   "frameworks": "arduino",
   "platforms": "*"
 }
