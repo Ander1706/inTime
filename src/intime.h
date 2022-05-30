@@ -18,7 +18,6 @@ class InTime {
 private:
   uint32_t _time;
   bool _repeat;
-
 public:
   uint32_t time_from;
   uint32_t time_to;

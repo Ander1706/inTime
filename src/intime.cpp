@@ -26,7 +26,7 @@ bool InTime::expired(void) {
     if (ticks >= time_from)
         tickCnt = ticks - time_from;
     else
-       tickCnt = UINT32_MAX - time_from + ticks;
+        tickCnt = UINT32_MAX - time_from + ticks;
     return false;
 }
 
