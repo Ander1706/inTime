@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/Ander1706/inTime"
   },
-  "version": "1.0",
+  "version": "1.1",
   "exclude": [
     "*.png",
     "*.zip"
