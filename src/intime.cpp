@@ -12,29 +12,29 @@
 #include "intime.h"
 
 bool InTime::expired(void) {
-    if (!tmr_on)
-        return false;
-    uint32_t ticks = millis();
-    if (time_from <= time_to || ticks < time_from)
-        if (ticks >= time_to) {
-            tmr_on = false;
-            tickCnt = _time;
-            if (_repeat)
-                this->set(_time, _repeat);
-            return true;
-        }
-    if (ticks >= time_from)
-        tickCnt = ticks - time_from;
-    else
-        tickCnt = UINT32_MAX - time_from + ticks;
+  if (!tmr_on)
     return false;
+  uint32_t ticks = millis();
+  if (time_from <= time_to || ticks < time_from)
+    if (ticks >= time_to) {
+      tmr_on = false;
+      tickCnt = _time;
+      if (_repeat)
+        this->set(_time, _repeat);
+      return true;
+    }
+  if (ticks >= time_from)
+    tickCnt = ticks - time_from;
+  else
+    tickCnt = UINT32_MAX - time_from + ticks;
+  return false;
 }
 
 void InTime::set(uint32_t timeout, bool repeat) {
-    _repeat = repeat;
-    _time = timeout;
-    time_from = millis();
-    time_to = time_from + timeout;
-    tmr_on = true;
-    tickCnt = 0;
+  _repeat = repeat;
+  _time = timeout;
+  time_from = millis();
+  time_to = time_from + timeout;
+  tmr_on = true;
+  tickCnt = 0;
 }
