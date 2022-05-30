@@ -1,16 +1,25 @@
 {
-  "name": "inTime",
-  "keywords": "delay, wait, millis, timing, device, control, timer, esp8266, esp32, arduino, mega",
-  "description": "A very small Arduino library for working with time intervals",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Ander1706/inTime"
-  },
-  "version": "1.1",
-  "exclude": [
-    "*.png",
-    "*.zip"
-  ],
-  "frameworks": "arduino",
-  "platforms": "*"
+    "name": "inTime",
+    "keywords": "delay, wait, millis, timing, device, control, timer, esp8266, esp32, arduino, mega",
+    "description": "A very small Arduino library for working with time intervals",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ander1706/inTime"
+    },
+    "version": "1.1",
+    "exclude": [
+        "*.png",
+        "*.zip"
+    ],
+    "examples": [{
+        "name": "inTime",
+        "base": "example/intime_PIO",
+        "files": [
+            "platformio.ini",
+            "src/main.cpp",
+            "README"
+        ]
+    }],
+    "frameworks": "arduino",
+    "platforms": "*"
 }
