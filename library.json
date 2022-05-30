@@ -18,10 +18,10 @@
         "files": [
             "platformio.ini",
             "src/main.cpp",
-            "README",
+            "README"
         ]
-    },
-]
+    }
+],
   "frameworks": "arduino",
   "platforms": "*"
 }
