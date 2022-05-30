@@ -3,6 +3,6 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-clang-format
-test
-lib
+.clang-format
+/test
+lib/
