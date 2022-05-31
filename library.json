@@ -6,7 +6,7 @@
         "type": "git",
         "url": "https://github.com/Andy-Kar/inTime"
     },
-    "version": "1.1",
+    "version": "1.2",
     "exclude": [
         "*.png",
         "*.zip",
