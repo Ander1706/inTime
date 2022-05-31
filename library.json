@@ -16,8 +16,7 @@
         "base": "example/intime_PIO",
         "files": [
             "platformio.ini",
-            "src/main.cpp",
-            "README"
+            "src/main.cpp"
         ]
     }],
     "frameworks": "arduino",
