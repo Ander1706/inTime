@@ -12,6 +12,11 @@
         "*.zip",
         "*.gz"
     ],
+    "examples": [{
+        "name": "intime",
+        "base": "examples/intime_PIO",
+        "files": ["src/main.cpp"]
+    }],
     "frameworks": "arduino",
     "platforms": ["atmelavr", "atmelsam", "espressif8266", "espressif32"]
 }
