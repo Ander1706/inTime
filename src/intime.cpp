@@ -15,6 +15,10 @@ bool InTime::expired(void) {
   if (!tmr_on)
     return false;
   uint32_t ticks = millis();
+  if (_immediately){
+    _immediately = false;
+    return true;
+  }
   if (time_from <= time_to || ticks < time_from)
     if (ticks >= time_to) {
       tmr_on = false;
@@ -30,7 +34,8 @@ bool InTime::expired(void) {
   return false;
 }
 
-void InTime::set(uint32_t timeout, bool repeat) {
+void InTime::set(uint32_t timeout, bool repeat, bool immediately) {
+  _immediately = immediately;
   _repeat = repeat;
   _time = timeout;
   time_from = millis();

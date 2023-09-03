@@ -15,17 +15,18 @@
 
 #include <arduino.h>
 class InTime {
-private:
-  uint32_t _time;
-  bool _repeat;
+  private:
+    uint32_t _time;
+    bool _repeat;
+    bool _immediately; //check!!!
 
-public:
-  uint32_t time_from;
-  uint32_t time_to;
-  uint32_t tickCnt;
-  bool tmr_on = false;
-  bool expired(void);
-  void set(uint32_t timeout, bool repeat);
+  public:
+    uint32_t time_from;
+    uint32_t time_to;
+    uint32_t tickCnt;
+    bool tmr_on = false;
+    bool expired(void);
+    void set(uint32_t timeout, bool repeat, bool immediately = false);
 };
 
 #endif
