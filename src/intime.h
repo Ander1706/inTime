@@ -18,15 +18,75 @@ class InTime {
   private:
     uint32_t _time;
     bool _repeat;
-    bool _immediately; //check!!!
-
+    bool _immediately;
+    bool _useMillis; 
+    uint32_t _time_from;
+    uint32_t _time_to;
+    uint32_t _tickCnt;
+    void _set() {
+        if (_useMillis) 
+            _time_from = millis();
+        else 
+            _time_from = micros();
+        _time_to = _time_from + _time;
+        tmr_on = true;
+        _tickCnt = 0;
+    }
   public:
-    uint32_t time_from;
-    uint32_t time_to;
-    uint32_t tickCnt;
-    bool tmr_on = false;
-    bool expired(void);
-    void set(uint32_t timeout, bool repeat, bool immediately = false);
+    bool tmr_on = false; //false - OFF
+    bool expired(void) {
+        if (!tmr_on)
+            return false;
+        uint32_t ticks;
+        if (_useMillis)
+            ticks = millis();
+        else
+            ticks = micros();
+        if (_immediately) {
+            _immediately = false;
+            return true;
+        }
+        if (_time_from <= _time_to || ticks < _time_from)
+            if (ticks >= _time_to) {
+                tmr_on = false;
+                _tickCnt = _time;
+                if (_repeat)
+                    _set();
+                return true;
+            }
+        if (ticks >= _time_from)
+            _tickCnt = ticks - _time_from;
+        else
+            _tickCnt = UINT32_MAX - _time_from + ticks;
+        return false;
+    }
+    void set(float timeout, bool repeat, bool immediately = false) { //if timeout is integer then use millis else micros 
+        _immediately = immediately;
+        _repeat = repeat;
+        float integerPart_float;
+        float fractionPart = modff(timeout, &integerPart_float);
+        if (fractionPart == 0) {
+            _time = timeout;
+            //Serial.println("millis");
+            _useMillis = true;
+        }
+        else {
+            _time = timeout * 1000;
+            _useMillis = false;
+            //Serial.println("micros");
+        }
+        //Serial.printf("time_to:%d\n", time_to);
+        _set();
+    }
+    uint32_t get_time_from(){
+        return _time_from;
+    }
+    uint32_t get_time_to(){
+        return _time_to;
+    }
+    uint32_t get__tickCnt(){
+        return _tickCnt;
+    }
 };
 
 #endif
